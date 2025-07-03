@@ -10,8 +10,8 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <h1>MIS XV</h1>
-      <h2>Valeria Gonzalez</h2>
+      <h1>Mis XV</h1>
+      <h2>Valeria Sophia</h2>
     </section>
 
     <hr>
@@ -38,9 +38,30 @@
     <!-- Location Section -->
     <section class="ubicacion-section">
       <h2>Ubicación del evento</h2>
+      <h2>Hotel Lidotel, Margarita</h2>
       <button onclick="window.open('https://maps.app.goo.gl/9eoUJYCGG4EfabL4A', '_blank')">
         Ver en Google Maps
       </button>
+    </section>
+
+    <hr>
+
+    <!-- Dress Code Section -->
+    <section class="dresscode-section">
+      <h2>Código de vestimenta</h2>
+      <h2>Formal</h2>
+      <p><strong>¡Los colores plateado y morado están reservados para la quinceañera!</strong></p>
+      <div class="dresscode-circles">
+        <div>
+          <div class="dresscode-circle silver"></div>
+          <div class="dresscode-label">Plateado</div>
+        </div>
+        <div>
+          <div class="dresscode-circle gold"></div>
+          <div class="dresscode-label">Morado</div>
+        </div>
+      </div>
+      <h2>¡Ven a lucir tu mejor estilo!</h2>
     </section>
 
     <hr>
@@ -64,7 +85,7 @@
       <h2>¡Sugiere una canción para la playlist!</h2>
       <p>¿Tienes una canción favorita? Escríbela aquí y ayúdanos a armar la mejor playlist para la fiesta.</p>
       
-      <form action="https://formspree.io/f/xanjkavw" method="POST" class="playlist-form">
+      <form action="https://formspree.io/f/xanjkavw" method="POST">
         <input type="text" name="cancion" placeholder="Nombre de la canción" required>
         <input type="text" name="artista" placeholder="Artista" required>
         <button type="submit">Enviar sugerencia</button>
@@ -73,7 +94,7 @@
 
     <hr>
 
-    <!-- Album de Fotos Section -->
+    <!-- Photo Album Section -->
     <section class="album-section">
       <h2>¡Comparte tus fotos del evento!</h2>
       <p>Sube aquí las fotos que tomaste ese día y ayúdanos a crear recuerdos inolvidables.</p>
@@ -81,7 +102,6 @@
     </section>
   </main>
 
-  <!-- Countdown Script -->
   <script>
     const countdownEl = document.getElementById("countdown");
     const targetDate = new Date("2025-09-20T00:00:00");
