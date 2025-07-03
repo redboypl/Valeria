@@ -32,7 +32,7 @@ background-image: url('img/background.jpeg');
 /* Solo para pantallas menores a 768px (móviles) */
 @media (max-width: 768px) {
   body {
-    background-size: contain;         /* no recorta, pero puede dejar bordes */
+    background-size: cover;         /* no recorta, pero puede dejar bordes */
     background-position: top center;  /* muestra más la parte superior */
     background-repeat: no-repeat;
     background-attachment: scroll;
