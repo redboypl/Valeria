@@ -1,68 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="styles.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XV de Valeria</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Sección 1: Título principal -->
-  <section class="hero">
-    <h1>MIS XV</h1>
-    <h2>Valeria Gonzalez</h2>
-  </section>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>MIS XV</h1>
+      <h2>Valeria Gonzalez</h2>
+    </section>
 
-  <!-- Sección 2: Audio -->
-  <section class="audio-section">
-    <p>DALE CLICK PARA EMPEZAR</p>
-    <audio controls>
-      <source src="audio/musica.mp3" type="audio/mp3">
-      Tu navegador no soporta el elemento de audio.
-    </audio>
-  </section>
+    <!-- Audio Section -->
+    <section class="audio-section">
+      <p>DALE CLICK PARA EMPEZAR</p>
+      <audio controls>
+        <source src="audio/musica.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </section>
 
-  <!-- Sección 3: Calendario y botón de asistencia -->
-  <section class="calendario-section">
-    <h2>Calendario del evento</h2>
-    <h2>Fecha: 20 de septiembre de 2025</h2>
-    <h2>Hora: xx:xx</h2>
-    <div class="calendario">
-      <table class="calendar-table">
-        <thead>
-          <tr>
-            <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
-          <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
-          <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td class="evento">20</td></tr>
-          <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
-          <tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <button onclick="document.getElementById('form-asistencia').scrollIntoView({behavior: 'smooth'});">Confirmar asistencia</button>
-  </section>
+    <!-- Calendar Section -->
+    <section class="calendario-section">
+      <span class="fecha-evento">Fecha: 20 de septiembre de 2025</span>
+      <span class="hora-evento">Hora: xx:xx</span>
+    </section>
 
-  <!-- Sección 4: Ubicación -->
-  <section class="ubicacion-section">
-    <h2>Ubicación del evento</h2>
-    <button onclick="window.open('https://maps.app.goo.gl/9eoUJYCGG4EfabL4A', '_blank')">Ver en Google Maps</button>
-  </section>
+    <!-- Location Section -->
+    <section class="ubicacion-section">
+      <h2>Ubicación del evento</h2>
+      <button onclick="window.open('https://maps.app.goo.gl/9eoUJYCGG4EfabL4A', '_blank')">
+        Ver en Google Maps
+      </button>
+    </section>
 
-  <!-- Sección 5: Formulario de confirmación -->
-  <section id="form-asistencia" class="info-evento">
-    <h2>Confirma tu asistencia</h2>
-    <div id="countdown"></div>
-    <form action="https://formspree.io/f/myzjvjer" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre" required />
-      <input type="email" name="email" placeholder="Tu correo" required />
-      <button type="submit">Confirmar asistencia</button>
-    </form>
-  </section>
+    <!-- RSVP Section -->
+    <section id="form-asistencia" class="info-evento">
+      <h2>Confirma tu asistencia</h2>
+      <div id="countdown"></div>
+      
+      <form action="https://formspree.io/f/myzjvjer" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <button type="submit">Confirmar asistencia</button>
+      </form>
+    </section>
 
+    <!-- Playlist Section -->
+    <section class="playlist-section">
+      <h2>¡Sugiere una canción para la playlist!</h2>
+      <p>¿Tienes una canción favorita? Escríbela aquí y ayúdanos a armar la mejor playlist para la fiesta.</p>
+      
+      <form action="https://formspree.io/f/myzjvjer" method="POST" class="playlist-form">
+        <input type="text" name="cancion" placeholder="Nombre de la canción" required>
+        <input type="text" name="artista" placeholder="Artista" required>
+        <button type="submit">Enviar sugerencia</button>
+      </form>
+    </section>
+
+    <!-- Album de Fotos Section -->
+    <section class="album-section">
+      <h2>¡Comparte tus fotos del evento!</h2>
+      <p>Sube aquí las fotos que tomaste ese día y ayúdanos a crear recuerdos inolvidables.</p>
+      <a href="https://TU_LINK_ALBUM" target="_blank" class="album-btn">Subir mis fotos</a>
+    </section>
+  </main>
+
+  <!-- Countdown Script -->
   <script>
     const countdownEl = document.getElementById("countdown");
     const targetDate = new Date("2025-09-20T00:00:00");
@@ -83,7 +90,9 @@
 
       countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-  </script>
 
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
