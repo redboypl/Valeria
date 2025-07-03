@@ -16,11 +16,15 @@ html, body {
 
 /* Fuente general */
 body {
-  background-image: url('img/background.jpeg'); /* Coloca la ruta correcta */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+  background-image: url('img/background.jpeg');
+  background-size: cover;           /* Escala la imagen para que cubra toda la pantalla */
+  background-repeat: no-repeat;     /* No repetir la imagen */
+  background-position: center;      /* Centrarla */
+  background-attachment: fixed;     /* Hace que se mantenga fija al hacer scroll */
+  min-height: 100vh;                /* Asegura que al menos cubra toda la pantalla */
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', 'Montserrat', 'Quicksand', serif, sans-serif;
   font-family: 'Playfair Display', 'Montserrat', 'Quicksand', serif, sans-serif;
   margin: 0;
   padding: 2rem 0 0 0;
