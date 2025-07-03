@@ -347,3 +347,15 @@ button:hover,
   color: #111;
   margin-bottom: 1.2rem;
 }
+
+/* Divider */
+hr {
+  border: none;
+  height: 9px;
+  background: linear-gradient(90deg, #ffb347 0%, #ffe259 40%, #fff6b7 50%, #ffcc33 100%);
+  border-radius: 0;
+  margin: 2.5rem auto;
+  width: 80%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  opacity: 1;
+}
