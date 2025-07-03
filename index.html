@@ -53,6 +53,24 @@
     .ubicacion-section {
       margin: 2rem 0;
     }
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .calendar-table th, .calendar-table td {
+      width: 14.28%;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+    }
+    .calendar-table th {
+      background: #f4f4f4;
+    }
+    .evento {
+      background: #e63946;
+      color: white;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -74,9 +92,23 @@
   <!-- Sección 3: Calendario y botón de asistencia -->
   <section class="calendario-section">
     <h2>Calendario del evento</h2>
+    <h2>Fecha: 20 de septiembre de 2025</h2>
+    <h2>Hora: xx:xx</h2>
     <div class="calendario">
-      <!-- Aquí puedes poner un calendario visual, por ahora solo la fecha destacada -->
-      <p><strong>20</strong> septiembre 2025</p>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+          <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+          <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td class="evento">20</td></tr>
+          <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+          <tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
     </div>
     <button onclick="document.getElementById('form-asistencia').scrollIntoView({behavior: 'smooth'});">Confirmar asistencia</button>
   </section>
@@ -84,7 +116,7 @@
   <!-- Sección 4: Ubicación -->
   <section class="ubicacion-section">
     <h2>Ubicación del evento</h2>
-    <button onclick="window.open('https://www.google.com/maps?q=Salón+de+Eventos,+Ciudad', '_blank')">Ver en Google Maps</button>
+    <button onclick="window.open('https://maps.app.goo.gl/9eoUJYCGG4EfabL4A', '_blank')">Ver en Google Maps</button>
   </section>
 
   <!-- Sección 5: Formulario de confirmación -->
@@ -118,17 +150,6 @@
 
       countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-    document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.opacity = 0;
-  document.body.style.transition = 'opacity 1s ease-in-out';
-  setTimeout(() => {
-    document.body.style.opacity = 1;
-  }, 100);
-});
-
   </script>
 
 </body>
