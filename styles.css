@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&family=Quicksand:wght@400;700&display=swap');
+
 html, body {
   height: 100%;
 }
@@ -15,45 +17,51 @@ html, body {
 /* Fuente general */
 body {
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  /* Elimina el fondo para que solo .background-blur lo tenga */
+  font-family: 'Playfair Display', 'Montserrat', 'Quicksand', serif, sans-serif;
+  background: #7ecbff !important; /* azul cielo, forzado */
   margin: 0;
   padding: 2rem 0 0 0;
   text-align: center;
+  color: #111;
 }
 
 
 /* Títulos */
 h1, h2 {
-  color: #7000a8;
+  color: #fff;
+  font-family: 'Playfair Display', 'Montserrat', serif;
 }
 
 /* Contador */
 #countdown {
   font-size: 3rem;
   font-weight: bold;
-  color: #e63946;
+  color: #fff;
   margin: 1.5rem 0;
 }
 
 /* Formulario */
-form {
-  background: white;
+form, .info-evento {
+  background: transparent !important;
   padding: 1.5rem;
   margin-top: 2rem;
   display: inline-block;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 0 !important;
   width: 100%;
   max-width: 400px;
+  box-shadow: none !important;
 }
 
 input, button {
   display: block;
-  width: 100%;
-  margin: 0.8rem 0;
+  width: auto;
+  min-width: 150px;
+  max-width: 100%;
+  margin: 0.8rem auto;
   padding: 0.8rem;
   font-size: 1rem;
+  background: #fff;
+  color: #111;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -63,16 +71,26 @@ input:focus {
   outline: none;
 }
 
-button {
-  background: #e63946;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
+button, .calendario-section button, .ubicacion-section button, .info-evento form button {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #111;
+  transition: background 0.3s, color 0.3s;
 }
 
-button:hover {
-  background: #d62828;
+button:hover, .calendario-section button:hover, .ubicacion-section button:hover, .info-evento form button:hover {
+  background: #00e5ff !important;
+  color: #111 !important;
+  border: 1px solid #00e5ff;
+}
+
+.calendario-section button, .ubicacion-section button, .info-evento form button {
+  width: auto;
+  min-width: 150px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 /* Elimina el desenfoque y la imagen de fondo, deja fondo blanco */
@@ -84,13 +102,13 @@ button:hover {
 .hero {
   margin-bottom: 2.5rem;
   padding: 2rem 1rem 1rem 1rem;
-  background: rgba(255,255,255,0.85);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(112,0,168,0.08);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 .hero h1 {
   font-size: 3rem;
-  color: #7000a8;
+  color: #000000;
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
 }
@@ -101,15 +119,15 @@ button:hover {
 }
 .audio-section {
   margin: 2rem 0;
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
+  background: transparent;
+  border-radius: 0;
   padding: 1.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(112,0,168,0.06);
+  box-shadow: none;
 }
 .audio-section p {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #7000a8;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 .audio-section audio {
@@ -119,27 +137,31 @@ button:hover {
 }
 .calendario-section {
   margin: 2rem 0;
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
+  background: transparent;
+  border-radius: 0;
   padding: 1.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(112,0,168,0.06);
+  box-shadow: none;
 }
 .calendario-section h2 {
-  color: #7000a8;
+  color: #000000;
 }
 .calendario {
   font-size: 2.2rem;
-  color: #e63946;
+  color: #000000;
   margin: 1rem 0 1.5rem 0;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .calendario strong {
   font-size: 3rem;
-  color: #7000a8;
+  color: #000000;
 }
 .calendario-section button {
-  background: #7000a8;
-  color: #fff;
+  background: #ffffff;
+  color: #55b6f7;
   border: none;
   border-radius: 8px;
   padding: 0.8rem 2rem;
@@ -150,17 +172,17 @@ button:hover {
   margin-top: 1rem;
 }
 .calendario-section button:hover {
-  background: #e63946;
+  background: #000000;
 }
 .ubicacion-section {
   margin: 2rem 0;
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
+  background: transparent;
+  border-radius: 0;
   padding: 1.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(112,0,168,0.06);
+  box-shadow: none;
 }
 .ubicacion-section h2 {
-  color: #7000a8;
+  color: #000000;
 }
 .ubicacion-section button {
   background: #e63946;
@@ -178,17 +200,29 @@ button:hover {
   background: #7000a8;
 }
 .info-evento {
-  background: rgba(255,255,255,0.95);
-  padding: 2rem 1rem;
-  border-radius: 12px;
   margin: 2.5rem auto 1.5rem auto;
-  display: inline-block;
-  box-shadow: 0 2px 10px rgba(112,0,168,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 400px;
+  padding: 2rem 1rem;
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
 }
-.info-evento h2 {
-  color: #7000a8;
-  margin-bottom: 1.2rem;
+.info-evento h2, .info-evento label, .info-evento input, .info-evento button {
+  color: #fff;
+}
+.info-evento form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
 }
 .info-evento form button {
   background: #7000a8;
@@ -204,6 +238,50 @@ button:hover {
 }
 .info-evento form button:hover {
   background: #e63946;
+}
+.info-evento input, .info-evento textarea {
+  color: #111 !important;
+  background: #fff;
+}
+
+.info-evento input::placeholder, .info-evento textarea::placeholder {
+  color: #888;
+}
+.calendar-table {
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem auto 0 auto;
+  border-collapse: collapse;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+.calendar-table th, .calendar-table td {
+  width: 14.2%;
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  font-family: 'Montserrat', 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: #00e5ff !important;
+}
+.calendar-table th {
+  background: #f3e6fa;
+  font-weight: 600;
+}
+.calendar-table td {
+  background: #faf6ff;
+  border: 1px solid #f3e6fa;
+}
+.calendar-table td.evento {
+  background: #111;
+  color: #fff;
+  box-shadow: 0 0 0 2px #fff;
+  width: 2.2em;
+  height: 2.2em;
+  font-size: 1.1rem;
+  line-height: 2.2em;
+  margin: 0 auto;
+  padding: 0;
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 2.2rem; }
