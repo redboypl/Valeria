@@ -1,59 +1,103 @@
+/* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&family=Quicksand:wght@400;700&display=swap');
 
+/* Base Styles */
 html, body {
   height: 100%;
+  min-height: 100vh;
+  background: #e3f3ff; /* Fallback background */
 }
 
-.central {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-/* Fuente general */
-body {
-background-image: url('img/background.jpeg');
+/* Background Image */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  z-index: -1;
+  background-image: url('img/background.jpeg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* Cambiado a scroll por compatibilidad móvil */
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: 'Playfair Display', 'Montserrat', 'Quicksand', serif, sans-serif;
-  text-align: center;
-  color: #111;
+  opacity: 1;
+  pointer-events: none;
 }
 
-/* Solo para pantallas menores a 768px (móviles) */
+/* Typography */
+h1, h2 {
+  color: #111;
+  font-family: 'Playfair Display', 'Montserrat', serif;
+  text-align: center;
+  width: 100%;
+}
+
+/* Animations */
+.hero h1, .hero h2 {
+  animation: fadeInUp 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.hero h2 {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  body {
-    background-size: contain;         /* no recorta, pero puede dejar bordes */
-    background-position: top center;  /* muestra más la parte superior */
+  body::before {
+    background-size: contain;
+    background-position: top center;
     background-repeat: repeat;
     background-attachment: scroll;
   }
 }
 
-/* Títulos */
-h1, h2 {
-  color: #fff;
-  font-family: 'Playfair Display', 'Montserrat', serif;
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero h2 { font-size: 1.3rem; }
+  .calendario { font-size: 1.3rem; }
+  .calendario strong { font-size: 2rem; }
+  .info-evento { padding: 1rem 0.5rem; }
 }
 
-/* Contador */
+/* Countdown Timer */
 #countdown {
   font-size: 3rem;
   font-weight: bold;
-  color: #fff;
+  color: #111;
   margin: 1.5rem 0;
+  background: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  padding: 0.5rem 1.2rem;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Formulario */
+/* Form Elements */
 form, .info-evento {
   background: transparent !important;
   padding: 1.5rem;
@@ -65,7 +109,7 @@ form, .info-evento {
   box-shadow: none !important;
 }
 
-input, button {
+input, button, textarea {
   display: block;
   width: auto;
   min-width: 150px;
@@ -84,83 +128,98 @@ input:focus {
   outline: none;
 }
 
-button, .calendario-section button, .ubicacion-section button, .info-evento form button {
-  background: #fff !important;
-  color: #111 !important;
-  border: 1px solid #111;
-  transition: background 0.3s, color 0.3s;
+input::placeholder, textarea::placeholder {
+  color: #888;
 }
 
-button:hover, .calendario-section button:hover, .ubicacion-section button:hover, .info-evento form button:hover {
-  background: #00e5ff !important;
-  color: #111 !important;
-  border: 1px solid #00e5ff;
-}
-
-.calendario-section button, .ubicacion-section button, .info-evento form button {
+/* Unified Buttons */
+button, 
+.calendario-section button, 
+.ubicacion-section button, 
+.info-evento form button,
+.playlist-btn,
+.album-btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 1rem auto 0.5rem;
+  cursor: pointer;
   width: auto;
   min-width: 150px;
   max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
+  color: #111;
 }
 
-/* Elimina el desenfoque y la imagen de fondo, deja fondo blanco */
-.background-blur {
-  display: none;
+button:hover, 
+.calendario-section button:hover, 
+.ubicacion-section button:hover, 
+.info-evento form button:hover,
+.playlist-btn:hover,
+.album-btn:hover {
+  background: linear-gradient(90deg, #f5f5f5 0%, #757575 100%);
+  color: #fff;
+  transform: scale(1.05);
 }
 
-/* Estilos modernos y consistentes para todas las secciones */
-.hero {
-  margin-bottom: 2.5rem;
-  padding: 2rem 1rem 1rem 1rem;
+/* Sections */
+.hero, 
+.audio-section, 
+.calendario-section, 
+.ubicacion-section, 
+.info-evento, 
+.playlist-section,
+.album-section {
+  margin: 2rem 0;
+  padding: 2rem 1rem;
   background: transparent;
   border-radius: 0;
   box-shadow: none;
+  text-align: center;
 }
+
+.hero {
+  margin-bottom: 2.5rem;
+}
+
 .hero h1 {
   font-size: 3rem;
-  color: #000000;
+  color: #111;
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
 }
+
 .hero h2 {
   font-size: 2rem;
-  color: #e63946;
+  color: #111;
   margin-top: 0;
 }
-.audio-section {
-  margin: 2rem 0;
-  background: transparent;
-  border-radius: 0;
-  padding: 1.5rem 1rem;
-  box-shadow: none;
-}
+
+/* Audio Section */
 .audio-section p {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #111;
   margin-bottom: 1rem;
 }
+
 .audio-section audio {
   width: 100%;
   max-width: 350px;
   outline: none;
 }
-.calendario-section {
-  margin: 2rem 0;
-  background: transparent;
-  border-radius: 0;
-  padding: 1.5rem 1rem;
-  box-shadow: none;
-}
-.calendario-section h2 {
-  color: #000000;
-}
+
+/* Calendar Section */
 .calendario {
   font-size: 2.2rem;
-  color: #000000;
+  color: #111;
   margin: 1rem 0 1.5rem 0;
   font-weight: bold;
   display: flex;
@@ -168,108 +227,23 @@ button:hover, .calendario-section button:hover, .ubicacion-section button:hover,
   align-items: center;
   justify-content: center;
 }
+
 .calendario strong {
   font-size: 3rem;
-  color: #000000;
-}
-.calendario-section button {
-  background: #ffffff;
-  color: #55b6f7;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 1rem;
-}
-.calendario-section button:hover {
-  background: #000000;
-}
-.ubicacion-section {
-  margin: 2rem 0;
-  background: transparent;
-  border-radius: 0;
-  padding: 1.5rem 1rem;
-  box-shadow: none;
-}
-.ubicacion-section h2 {
-  color: #000000;
-}
-.ubicacion-section button {
-  background: #e63946;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 1rem;
-}
-.ubicacion-section button:hover {
-  background: #7000a8;
-}
-.info-evento {
-  margin: 2.5rem auto 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 400px;
-  padding: 2rem 1rem;
-  background: transparent !important;
-  box-shadow: none;
-  border-radius: 0;
-  color: #fff;
-}
-.info-evento h2, .info-evento label, .info-evento input, .info-evento button {
-  color: #fff;
-}
-.info-evento form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-}
-.info-evento form button {
-  background: #7000a8;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 1rem;
-}
-.info-evento form button:hover {
-  background: #e63946;
-}
-.info-evento input, .info-evento textarea {
-  color: #111 !important;
-  background: #fff;
+  color: #111;
 }
 
-.info-evento input::placeholder, .info-evento textarea::placeholder {
-  color: #888;
-}
+/* Calendar Table */
 .calendar-table {
   width: 100%;
   max-width: 350px;
   margin: 1rem auto 0 auto;
   border-collapse: collapse;
   background: transparent;
-  border-radius: 0;
-  box-shadow: none;
 }
-.calendar-table th, .calendar-table td {
+
+.calendar-table th, 
+.calendar-table td {
   width: 14.2%;
   text-align: center;
   padding: 0.5rem 0.2rem;
@@ -277,14 +251,17 @@ button:hover, .calendario-section button:hover, .ubicacion-section button:hover,
   font-size: 1.1rem;
   color: #00e5ff !important;
 }
+
 .calendar-table th {
   background: #f3e6fa;
   font-weight: 600;
 }
+
 .calendar-table td {
   background: #faf6ff;
   border: 1px solid #f3e6fa;
 }
+
 .calendar-table td.evento {
   background: #111;
   color: #fff;
@@ -296,10 +273,77 @@ button:hover, .calendario-section button:hover, .ubicacion-section button:hover,
   margin: 0 auto;
   padding: 0;
 }
+
+/* Event Info Section */
+.info-evento {
+  max-width: 400px;
+  margin: 2.5rem auto 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-evento form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* Playlist Section */
+.playlist-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+  color: #111;
+}
+
+.playlist-section p {
+  color: #111;
+  margin-bottom: 1.2rem;
+}
+
+/* Fecha y Hora Evento */
+.fecha-evento, .hora-evento {
+  display: block;
+  font-size: 2.1rem;
+  font-family: 'Playfair Display', serif;
+  color: #222;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 0.7rem 2rem;
+  margin: 1.2rem auto 0.7rem auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  letter-spacing: 0.04em;
+  max-width: 420px;
+  font-weight: 700;
+}
+
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.2rem; }
-  .hero h2 { font-size: 1.3rem; }
-  .calendario { font-size: 1.3rem; }
-  .calendario strong { font-size: 2rem; }
-  .info-evento { padding: 1rem 0.5rem; }
+  .fecha-evento, .hora-evento {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.7rem;
+    max-width: 95vw;
+  }
+}
+
+/* Album Section */
+.album-section {
+  margin: 2.5rem auto 2rem auto;
+  padding: 2rem 1rem;
+  max-width: 400px;
+  background: transparent;
+  text-align: center;
+}
+
+.album-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+  color: #111;
+}
+
+.album-section p {
+  color: #111;
+  margin-bottom: 1.2rem;
 }
