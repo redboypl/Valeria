@@ -23,6 +23,10 @@ body {
   padding: 2rem 0 0 0;
   text-align: center;
   color: #111;
+  background-image: url('img/background.jpg'); /* Coloca la ruta correcta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
