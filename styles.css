@@ -25,12 +25,18 @@ background-image: url('img/background.jpeg');
   margin: 0;
   padding: 0;
   font-family: 'Playfair Display', 'Montserrat', 'Quicksand', serif, sans-serif;
-  margin: 0;
-  padding: 2rem 0 0 0;
   text-align: center;
   color: #111;
 }
 
+/* Solo para pantallas menores a 768px (móviles) */
+@media (max-width: 768px) {
+  body {
+    background-size: contain;         /* no recorta, pero puede dejar bordes */
+    background-position: top center;  /* muestra más la parte superior */
+    background-repeat: no-repeat;
+  }
+}
 
 /* Títulos */
 h1, h2 {
