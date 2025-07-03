@@ -1,11 +1,11 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mea+Culpa&family=Montserrat:wght@400;600&display=swap');
 
 /* Base Styles */
 html, body {
   height: 100%;
   min-height: 100vh;
-  background: #e3f3ff; /* Fallback background */
+  background: #e3f3ff;
 }
 
 body {
@@ -15,9 +15,32 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* Background Image */
+/* Tipografía */
+h1, .hero h1 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-family: 'Mea Culpa', cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #111;
+  text-align: center;
+  width: 100%;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Fondo */
 body::before {
   content: '';
   position: fixed;
@@ -34,23 +57,7 @@ body::before {
   pointer-events: none;
 }
 
-/* Typography */
-h1, h2 {
-  color: #111;
-  font-family: 'Playfair Display', 'Montserrat', serif;
-  text-align: center;
-  width: 100%;
-}
-
-/* Animations */
-.hero h1, .hero h2 {
-  animation: fadeInUp 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-.hero h2 {
-  animation-delay: 0.5s;
-}
-
+/* Animaciones */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -66,7 +73,15 @@ h1, h2 {
   }
 }
 
-/* Mobile Responsive */
+.hero h1, .hero h2 {
+  animation: fadeInUp 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.hero h2 {
+  animation-delay: 0.5s;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   body::before {
     background-size: contain;
@@ -84,32 +99,36 @@ h1, h2 {
   .info-evento { padding: 1rem 0.5rem; }
 }
 
-/* Countdown Timer */
+/* Contador */
 #countdown {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: #111;
-  margin: 1.5rem 0;
+  margin: 1.5rem auto 1.2rem auto;
   background: rgba(255,255,255,0.7);
   border-radius: 10px;
   padding: 0.5rem 1.2rem;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  min-width: 260px;
 }
 
-/* Form Elements */
+/* Formularios */
 form, .info-evento {
-  background: transparent !important;
+  background: transparent;
   padding: 1.5rem;
   margin-top: 2rem;
   display: inline-block;
-  border-radius: 0 !important;
   width: 100%;
   max-width: 400px;
-  box-shadow: none !important;
 }
 
-input, button, textarea {
+input, textarea {
   display: block;
   width: auto;
   min-width: 150px;
@@ -132,56 +151,34 @@ input::placeholder, textarea::placeholder {
   color: #888;
 }
 
-/* Unified Buttons */
-button, 
-.calendario-section button, 
-.ubicacion-section button, 
-.info-evento form button,
-.playlist-btn,
-.album-btn {
+/* Botones */
+button {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-family: 'Birthstone', cursive;
+  font-size: 1.3rem;
+  font-weight: 400;
   padding: 0.9rem 2.2rem;
   border: none;
   border-radius: 30px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  text-decoration: none;
   transition: all 0.3s ease;
   margin: 1rem auto 0.5rem;
   cursor: pointer;
-  width: auto;
   min-width: 150px;
-  max-width: 100%;
   background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
   color: #111;
 }
 
-button:hover, 
-.calendario-section button:hover, 
-.ubicacion-section button:hover, 
-.info-evento form button:hover,
-.playlist-btn:hover,
-.album-btn:hover {
+button:hover {
   background: linear-gradient(90deg, #f5f5f5 0%, #757575 100%);
   color: #fff;
   transform: scale(1.05);
 }
 
-/* Sections */
-.hero, 
-.audio-section, 
-.calendario-section, 
-.ubicacion-section, 
-.info-evento, 
-.playlist-section,
-.album-section {
+/* Secciones */
+section {
   margin: 2rem 0;
   padding: 2rem 1rem;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
   text-align: center;
 }
 
@@ -202,7 +199,7 @@ button:hover,
   margin-top: 0;
 }
 
-/* Audio Section */
+/* Audio */
 .audio-section p {
   font-size: 1.2rem;
   font-weight: bold;
@@ -216,7 +213,7 @@ button:hover,
   outline: none;
 }
 
-/* Calendar Section */
+/* Calendario */
 .calendario {
   font-size: 2.2rem;
   color: #111;
@@ -233,13 +230,11 @@ button:hover,
   color: #111;
 }
 
-/* Calendar Table */
 .calendar-table {
   width: 100%;
   max-width: 350px;
   margin: 1rem auto 0 auto;
   border-collapse: collapse;
-  background: transparent;
 }
 
 .calendar-table th, 
@@ -249,7 +244,6 @@ button:hover,
   padding: 0.5rem 0.2rem;
   font-family: 'Montserrat', 'Quicksand', sans-serif;
   font-size: 1.1rem;
-  color: #00e5ff !important;
 }
 
 .calendar-table th {
@@ -268,43 +262,10 @@ button:hover,
   box-shadow: 0 0 0 2px #fff;
   width: 2.2em;
   height: 2.2em;
-  font-size: 1.1rem;
   line-height: 2.2em;
-  margin: 0 auto;
-  padding: 0;
 }
 
-/* Event Info Section */
-.info-evento {
-  max-width: 400px;
-  margin: 2.5rem auto 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.info-evento form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-}
-
-/* Playlist Section */
-.playlist-section h2 {
-  font-size: 2rem;
-  margin-bottom: 0.7rem;
-  color: #111;
-}
-
-.playlist-section p {
-  color: #111;
-  margin-bottom: 1.2rem;
-}
-
-/* Fecha y Hora Evento */
+/* Fecha y Hora */
 .fecha-evento, .hora-evento {
   display: block;
   font-size: 2.1rem;
@@ -320,42 +281,120 @@ button:hover,
   font-weight: 700;
 }
 
-@media (max-width: 600px) {
-  .fecha-evento, .hora-evento {
-    font-size: 1.2rem;
-    padding: 0.5rem 0.7rem;
-    max-width: 95vw;
-  }
+.fecha-evento {
+  max-width: 95vw;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-/* Album Section */
-.album-section {
-  margin: 2.5rem auto 2rem auto;
-  padding: 2rem 1rem;
-  max-width: 400px;
-  background: transparent;
-  text-align: center;
-}
-
-.album-section h2 {
-  font-size: 2rem;
-  margin-bottom: 0.7rem;
-  color: #111;
-}
-
-.album-section p {
-  color: #111;
-  margin-bottom: 1.2rem;
-}
-
-/* Divider */
+/* Divisor */
 hr {
   border: none;
   height: 9px;
   background: linear-gradient(90deg, #ffb347 0%, #ffe259 40%, #fff6b7 50%, #ffcc33 100%);
-  border-radius: 0;
   margin: 2.5rem auto;
   width: 80%;
   box-shadow: 0 2px 12px rgba(0,0,0,0.13);
-  opacity: 1;
+}
+
+/* Dress Code */
+.dresscode-section {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  max-width: 500px;
+}
+
+.dresscode-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dresscode-section p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.dresscode-circles {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.dresscode-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+  border: 2.5px solid #fff;
+}
+
+.dresscode-circle.silver {
+  background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+  color: #888;
+}
+
+.dresscode-circle.gold {
+  background: linear-gradient(135deg, #a259ff, #6a1b9a);
+}
+
+.dresscode-label {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .fecha-evento {
+    max-width: 600px;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .fecha-evento, .hora-evento {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.7rem;
+  }
+  
+  .dresscode-section {
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .dresscode-circles {
+    gap: 1.2rem;
+  }
+}
+
+.info-evento {
+  max-width: 500px;
+  margin: 2.5rem auto 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.info-evento form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
 }
