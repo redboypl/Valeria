@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Popup centrado y con desenfoque -->
+  <div class="overlay" id="popup">
+    <div class="popup-content">
+      <h2>¡Bienvenidos a la fiesta de XV años de Valeria!</h2>
+      <p>Esta noche sera inolvidable para todos. Papás, gracias por dejarnos compartir este momento con sus hijos. ¡Los esperamos al final de la fiesta!</p>
+      <button onclick="cerrarPopup()">Cerrar</button>
+    </div>
+  </div>
+
   <main>
     <!-- Hero Section -->
     <section class="hero">
@@ -38,7 +47,7 @@
     <!-- Location Section -->
     <section class="ubicacion-section">
       <h2>Ubicación del evento</h2>
-      <h2>Hotel Lidotel, Margarita</h2>
+      <h2>Hotel Lidotel Margarita</h2>
       <button onclick="window.open('https://maps.app.goo.gl/9eoUJYCGG4EfabL4A', '_blank')">
         Ver en Google Maps
       </button>
@@ -126,5 +135,15 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
+
+  <script>
+  function cerrarPopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+  window.onload = function() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+</script>
+
 </body>
 </html>
