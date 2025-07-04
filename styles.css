@@ -376,7 +376,9 @@ hr {
 .dresscode-label {
   font-size: 0.95rem;
   color: #555;
-  margin-top: 0.2rem;
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+  display: block;
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
