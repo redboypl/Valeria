@@ -430,3 +430,62 @@ button,
 .calendar-table td.evento {
   box-shadow: none !important;
 }
+
+/* Capa de desenfoque + oscuridad */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px) brightness(60%);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cuadro del mensaje */
+.popup-content {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 90%;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: aparecer 0.3s ease-out;
+}
+
+.popup-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.popup-content button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-content button:hover {
+  background: #7000a8;
+}
+
+/* Animación suave al aparecer */
+@keyframes aparecer {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
