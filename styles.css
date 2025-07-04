@@ -98,13 +98,13 @@ body::before {
   }
 }
 
-@media (max-width: 600px) {
+@media (pointer: coarse) {
   body::before {
-    background-image: url('img/background\ telf.jpeg');
+    background-image: url('img/background\\ telf.jpeg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 }
 
@@ -346,9 +346,17 @@ hr {
 
 .dresscode-circles {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   gap: 2.5rem;
   margin-bottom: 1.2rem;
+}
+
+.dresscode-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dresscode-circle {
@@ -362,11 +370,13 @@ hr {
   font-weight: bold;
   color: #fff;
   border: 2.5px solid #fff;
+  margin-bottom: 0.2rem;
 }
 
 .dresscode-circle.silver {
   background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
   color: #888;
+  margin-left: 10px; /* Ajusta este valor según lo que necesites */
 }
 
 .dresscode-circle.gold {
@@ -374,9 +384,7 @@ hr {
 }
 
 .dresscode-label {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0 auto 0.5rem auto;
+  margin: 0.3rem 0 0 0;
   text-align: center;
   display: block;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -387,21 +395,6 @@ hr {
   .fecha-evento {
     max-width: 600px;
     font-size: 1.7rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .fecha-evento, .hora-evento {
-    font-size: 1.2rem;
-    padding: 0.5rem 0.7rem;
-  }
-  
-  .dresscode-section {
-    padding: 1.2rem 0.5rem;
-  }
-  
-  .dresscode-circles {
-    gap: 1.2rem;
   }
 }
 
