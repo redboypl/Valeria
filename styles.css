@@ -277,7 +277,6 @@ hr {
   width: 320px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   animation: aparecer 0.3s ease-out;
-  text-aling: center;
 }
 
 @keyframes aparecer {
@@ -324,3 +323,9 @@ hr {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+.popup-content p {
+  text-align: center;
+}
+
