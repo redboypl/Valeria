@@ -1,5 +1,5 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mea+Culpa&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mea+Culpa&family=Montserrat:wght@400;600&family=Birthstone&display=swap');
 
 /* Base Styles */
 html, body {
@@ -104,7 +104,7 @@ body::before {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 
@@ -161,7 +161,7 @@ input::placeholder, textarea::placeholder {
 /* Botones */
 button {
   display: inline-block;
-  font-family: 'Birthstone', cursive;
+  font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 400;
   padding: 0.9rem 2.2rem;
@@ -183,7 +183,7 @@ button:hover {
 
 .album-btn {
   display: inline-block;
-  font-family: 'Birthstone', cursive !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.3rem;
   font-weight: 400;
   padding: 0.9rem 2.2rem;
