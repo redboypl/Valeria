@@ -1,11 +1,20 @@
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mea+Culpa&family=Montserrat:wght@400;600&family=Birthstone&display=swap');
+/* ===== FUENTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mea+Culpa&family=Montserrat:wght@400;600&family=Playfair+Display&display=swap');
 
-/* Base Styles */
+/* ===== ESTILOS BASE ===== */
+:root {
+  --color-primario: #111;
+  --color-secundario: #333;
+  --color-fondo: #ffffff;
+  --gradiente-boton: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
+  --gradiente-boton-hover: linear-gradient(90deg, #f5f5f5 0%, #757575 100%);
+}
+
 html, body {
   height: 100%;
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--color-fondo);
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 body {
@@ -15,29 +24,26 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* Tipografía */
+/* ===== TIPOGRAFÍA ===== */
 h1, .hero h1 {
   font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
   font-weight: 400;
   letter-spacing: 0.5px;
-  font-size: 5rem !important;
-  color: #111;
+  color: var(--color-primario);
   text-align: center;
-  width: 100%;
   margin-bottom: 1rem;
 }
 
-h2, .hero h2, .dresscode-section h2, .playlist-section h2, .album-section h2, .ubicacion-section h2, .calendario-section h2, .info-evento h2 {
-  font-family: 'Mea Culpa', cursive !important;
+h2 {
+  font-family: 'Mea Culpa', cursive;
+  font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: 0.5px;
-  font-size: 2.5rem !important;
-  color: #111;
+  color: var(--color-primario);
   text-align: center;
-  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -47,104 +53,82 @@ h3, h4, h5, h6 {
   letter-spacing: 0.5px;
 }
 
-/* Fondo */
+/* ===== FONDO ===== */
 body::before {
   content: '';
   position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
+  inset: 0;
   z-index: -1;
   background-image: url('img/background.jpeg');
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   opacity: 1;
   pointer-events: none;
 }
 
-/* Animaciones */
+/* ===== ANIMACIONES ===== */
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-8px) scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-8px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .hero h1, .hero h2 {
   animation: fadeInUp 2s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
-.hero h2 {
-  animation-delay: 0.5s;
+.hero h2 { animation-delay: 0.5s; }
+
+/* ===== SECCIONES ===== */
+section {
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 100%;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  body::before {
-    background-size: contain;
-    background-position: top center;
-    background-repeat: repeat;
-    background-attachment: scroll;
-  }
-}
-
-@media (pointer: coarse) {
-  body::before {
-    background-image: url('img/background telf.jpeg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
+.hero {
+  margin-bottom: 2.5rem;
 }
 
 /* Contador */
 #countdown {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #111;
-  margin: 1.5rem auto 1.2rem auto;
-  border-radius: 10px;
+  color: var(--color-primario);
+  margin: 1.5rem auto;
   padding: 0.5rem 1.2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  white-space: nowrap;
-  width: fit-content;
   min-width: 260px;
 }
 
 /* Formularios */
 form, .info-evento {
-  background: transparent;
   padding: 1.5rem;
   margin-top: 2rem;
-  display: inline-block;
-  width: 100%;
   max-width: 400px;
+}
+
+.info-evento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input, textarea {
   display: block;
-  width: auto;
-  min-width: 150px;
+  width: 100%;
   max-width: 100%;
   margin: 0.8rem auto;
   padding: 0.8rem;
   font-size: 1rem;
-  background: #fff;
-  color: #111;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -159,161 +143,28 @@ input::placeholder, textarea::placeholder {
 }
 
 /* Botones */
-button {
-  display: inline-block;
+button, .album-btn {
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
-  font-weight: 400;
   padding: 0.9rem 2.2rem;
   border: none;
   border-radius: 30px;
   transition: all 0.3s ease;
-  margin: 1rem auto 0.5rem;
+  margin: 1rem auto;
   cursor: pointer;
   min-width: 150px;
-  background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
-  color: #111;
+  background: var(--gradiente-boton);
+  color: var(--color-primario);
 }
 
-button:hover {
-  background: linear-gradient(90deg, #f5f5f5 0%, #757575 100%);
+button:hover, .album-btn:hover {
+  background: var(--gradiente-boton-hover);
   color: #fff;
   transform: scale(1.05);
 }
 
 .album-btn {
-  display: inline-block;
-  font-family: 'Playfair Display', serif !important;
-  font-size: 1.3rem;
-  font-weight: 400;
-  padding: 0.9rem 2.2rem;
-  border: none;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin: 1rem auto 0.5rem;
-  cursor: pointer;
-  width: auto;
-  min-width: 150px;
-  max-width: 100%;
-  background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
-  color: #111;
-}
-
-.album-btn:hover {
-  background: linear-gradient(90deg, #f5f5f5 0%, #757575 100%);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* Secciones */
-section {
-  margin: 2rem 0;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.hero {
-  margin-bottom: 2.5rem;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: #111;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.1em;
-}
-
-.hero h2 {
-  font-size: 2rem;
-  color: #111;
-  margin-top: 0;
-}
-
-/* Audio */
-.audio-section p {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #111;
-  margin-bottom: 1rem;
-}
-
-.audio-section audio {
-  width: 100%;
-  max-width: 350px;
-  outline: none;
-}
-
-/* Calendario */
-.calendario {
-  font-size: 2.2rem;
-  color: #111;
-  margin: 1rem 0 1.5rem 0;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendario strong {
-  font-size: 3rem;
-  color: #111;
-}
-
-.calendar-table {
-  width: 100%;
-  max-width: 350px;
-  margin: 1rem auto 0 auto;
-  border-collapse: collapse;
-}
-
-.calendar-table th, 
-.calendar-table td {
-  width: 14.2%;
-  text-align: center;
-  padding: 0.5rem 0.2rem;
-  font-family: 'Montserrat', 'Quicksand', sans-serif;
-  font-size: 1.1rem;
-}
-
-.calendar-table th {
-  background: #f3e6fa;
-  font-weight: 600;
-}
-
-.calendar-table td {
-  background: #faf6ff;
-  border: 1px solid #f3e6fa;
-}
-
-.calendar-table td.evento {
-  background: #111;
-  color: #fff;
-  width: 2.2em;
-  height: 2.2em;
-  line-height: 2.2em;
-}
-
-/* Fecha y Hora */
-.fecha-evento, .hora-evento {
-  display: block;
-  font-size: 2.1rem;
-  font-family: 'Playfair Display', serif;
-  color: #222;
-  border-radius: 18px;
-  padding: 0.7rem 2rem;
-  margin: 1.2rem auto 0.7rem auto;
-  letter-spacing: 0.04em;
-  max-width: 420px;
-  font-weight: 700;
-}
-
-.fecha-evento {
-  max-width: 95vw;
-  font-size: 1.5rem;
-  white-space: nowrap;
-  overflow-x: auto;
+  text-decoration: none !important;
 }
 
 /* Divisor */
@@ -333,30 +184,11 @@ hr {
   max-width: 500px;
 }
 
-.dresscode-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.dresscode-section p {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
 .dresscode-circles {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   justify-content: center;
   gap: 2.5rem;
   margin-bottom: 1.2rem;
-}
-
-.dresscode-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .dresscode-circle {
@@ -368,9 +200,7 @@ hr {
   justify-content: center;
   font-size: 1.7rem;
   font-weight: bold;
-  color: #fff;
   border: 2.5px solid #fff;
-  margin-bottom: 0.2rem;
 }
 
 .dresscode-circle.silver {
@@ -381,16 +211,45 @@ hr {
 
 .dresscode-circle.gold {
   background: linear-gradient(135deg, #a259ff, #6a1b9a);
+  color: #fff;
 }
 
 .dresscode-label {
-  margin: 0.3rem 0 0 0;
-  text-align: center;
-  display: block;
+  margin-top: 0.3rem;
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* Media Queries */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  body::before {
+    background-size: contain;
+    background-position: top center;
+    background-repeat: repeat;
+  }
+}
+
+@media (pointer: coarse) {
+  body::before {
+    background-image: url('img/background telf.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 600px) {
+  h1, .hero h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+  
+  .fecha-evento, .hora-evento {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.7rem;
+  }
+  
+  .dresscode-circles {
+    gap: 1.2rem;
+  }
+}
+
 @media (min-width: 600px) {
   .fecha-evento {
     max-width: 600px;
@@ -398,46 +257,10 @@ hr {
   }
 }
 
-.info-evento {
-  max-width: 500px;
-  margin: 2.5rem auto 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-.info-evento form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-}
-
-#countdown,
-.fecha-evento, .hora-evento,
-.dresscode-section,
-.dresscode-circle,
-.info-evento,
-.dresscode-section,
-.dresscode-circle,
-button,
-.album-btn,
-.calendar-table td.evento {
-  box-shadow: none !important;
-}
-
-/* Capa de desenfoque + oscuridad */
+/* ===== POPUP ===== */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   backdrop-filter: blur(8px) brightness(60%);
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 9999;
@@ -446,46 +269,57 @@ button,
   align-items: center;
 }
 
-/* Cuadro del mensaje */
 .popup-content {
   background: white;
   padding: 2rem 1.5rem;
   border-radius: 12px;
-  text-align: center;
   max-width: 90%;
   width: 320px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   animation: aparecer 0.3s ease-out;
 }
 
-.popup-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.fecha-evento, .hora-evento {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  border-radius: 18px;
+  padding: 0.7rem 2rem;
+  margin: 1.2rem auto 0.7rem auto;
+  letter-spacing: 0.04em;
+  max-width: 420px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.playlist-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playlist-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .popup-content button {
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  background: #e63946;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.popup-content button:hover {
-  background: #7000a8;
-}
-
-/* Animación suave al aparecer */
-@keyframes aparecer {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
