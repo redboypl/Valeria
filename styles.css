@@ -330,7 +330,7 @@ hr {
 
 /* ===== REGALO ===== */
 .regalo-window {
-  position: fixed;
+  position: sticky;
   right: 2.5vw;
   bottom: 2.5vw;
   background: linear-gradient(135deg, #fff6b7 0%, #ffcc33 100%);
@@ -368,3 +368,4 @@ hr {
     font-size: 1.2rem;
   }
 }
+
