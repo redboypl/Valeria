@@ -22,10 +22,17 @@ function updateCountdown() {
 // Función para cerrar el popup
 function cerrarPopup() {
     document.getElementById('popup').style.display = 'none';
-  }
+    // Mostrar la ventana de regalo después de cerrar el popup
+    var regalo = document.querySelector('.regalo-window');
+    if (regalo) regalo.style.display = 'block';
+}
+
 // Mostrar popup al cargar la página
 window.onload = function() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   document.getElementById('popup').style.display = 'flex';
+  // Ocultar la ventana de regalo al inicio
+  var regalo = document.querySelector('.regalo-window');
+  if (regalo) regalo.style.display = 'none';
 }
