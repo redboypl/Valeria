@@ -39,7 +39,7 @@ h1, .hero h1 {
 
 h2 {
   font-family: 'Mea Culpa', cursive;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 400;
   letter-spacing: 0.5px;
   color: var(--color-primario);
@@ -171,7 +171,7 @@ button:hover, .album-btn:hover {
 hr {
   border: none;
   height: 9px;
-  background: linear-gradient(90deg, #ffb347 0%, #ffe259 40%, #fff6b7 50%, #ffcc33 100%);
+  background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
   margin: 2.5rem auto;
   width: 80%;
 }
@@ -324,8 +324,47 @@ hr {
   margin-right: auto;
 }
 
-
 .popup-content p {
   text-align: center;
 }
 
+/* ===== REGALO ===== */
+.regalo-window {
+  position: fixed;
+  right: 2.5vw;
+  bottom: 2.5vw;
+  background: linear-gradient(135deg, #fff6b7 0%, #ffcc33 100%);
+  color: #333;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 0.7rem 1.2rem;
+  z-index: 10001;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #ffe259;
+  animation: aparecer 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  min-width: 180px;
+  max-width: 260px;
+}
+
+.regalo-dinero {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.7rem;
+  color: #a259ff;
+  font-weight: bold;
+  margin-left: 0.3em;
+}
+
+@media (max-width: 600px) {
+  .regalo-window {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
+    min-width: 120px;
+    max-width: 180px;
+  }
+  .regalo-dinero {
+    font-size: 1.2rem;
+  }
+}
