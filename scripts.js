@@ -46,6 +46,3 @@ window.addEventListener('scroll', function() {
       let scrolled = window.scrollY;
       regalo.style.bottom = (offset + scrolled) + 'px';
     }
-  }
-
-                        
