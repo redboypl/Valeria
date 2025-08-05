@@ -37,12 +37,3 @@ window.onload = function() {
   if (regalo) regalo.style.display = 'none';
 }
 
-//Posicion para la parte de abajo
-window.addEventListener('scroll', function() {
-    const regalo = document.querySelector('.regalo-window');
-    if (regalo) {
-      // Calcula una nueva posición inferior basada en el scroll
-      let offset = 40; // distancia mínima desde abajo
-      let scrolled = window.scrollY;
-      regalo.style.bottom = (offset + scrolled) + 'px';
-    }
